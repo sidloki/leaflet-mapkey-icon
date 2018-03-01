@@ -4,6 +4,7 @@ L.Icon.Mapkey = L.DivIcon.extend({
         size: 28,
         className: '',
         icon: 'mapkey',
+        iconPrefix: 'mki',
         background: '#1F7499',
         color: '#fcfcf9',
         hoverScale: 1.4,
@@ -53,7 +54,11 @@ L.Icon.Mapkey = L.DivIcon.extend({
 
         var mki = document.createElement("span");
         var classAttrSpan = document.createAttribute("class");
-        classAttrSpan.value = "mki-intext mki-"+this.options.icon
+        classAttrSpan.value = this.options.iconPrefix+" "+this.options.iconPrefix+"-"+this.options.icon;
+
+        if (this.options.iconPrefix === 'mki') {
+            classAttrSpan.value = this.options.iconPrefix+"-intext "+this.options.iconPrefix+"-"+this.options.icon;
+        }
         mki.setAttributeNode(classAttrSpan);
 
         if (this.options.htmlCode){
